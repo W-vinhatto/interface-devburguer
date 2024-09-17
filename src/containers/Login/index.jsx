@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup'
 import { api } from '../../services/api';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 import bacground from "../../assets/lanche-bacground.svg"
 import { Button } from "../../components/Button"
@@ -13,6 +14,7 @@ import {
     PDescrition,
     Form,
     InputContainer,
+    LinkText,
     Link,
     ErrosForm
 } from './style'
@@ -22,6 +24,7 @@ import {
 
 
 export function Login() {
+    const navigate = useNavigate()
 
     const schema = yup.object({
         email: yup
@@ -52,12 +55,17 @@ export function Login() {
             }),
             {
                 pending: 'Verificando seus dados',
-                success: 'seja Bem-vindo(a)',
+                success: {
+                    render() {
+                        setTimeout(() => {
+                            navigate('/')
+                        }, 2000)
+                        return 'seja Bem-vindo(a)'
+                    }
+                },
                 error: 'Email ou senha Incorretos'
             }
         )
-
-        console.log(response)
     }
 
 
@@ -84,12 +92,12 @@ export function Login() {
                         <ErrosForm>{errors?.password?.message}</ErrosForm>
                     </InputContainer>
 
-                    <Link>Esqueci minha senha.</Link>
+                    <LinkText>Esqueci minha senha.</LinkText>
 
                     <Button type='submit'>Entrar</Button>
                 </Form>
 
-                <Link>Não possui conta? <a>Clique aqui.</a></Link>
+                <LinkText>Não possui conta? <Link to='/cadastro' >Clique aqui.</Link></LinkText>
             </Container>
         </ContainerBg>
     )

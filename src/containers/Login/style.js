@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link as ReactLink } from "react-router-dom";
 
 import bgcolor from "../../assets/BG Lights effect.svg"
 
@@ -88,13 +89,9 @@ export const InputContainer = styled.div`
     }
 `
 
-export const Link = styled.h2`
+export const LinkText = styled.h2`
     color: #ffffff;
     font-size: 16px;
-
-    a {
-        color:  #FB8A04;
-    }
 `
 
 export const ErrosForm = styled.p`
@@ -102,4 +99,9 @@ export const ErrosForm = styled.p`
     color: #cf3057;
     line-height: 80%;
     height: 10px;
+`
+
+export const Link = styled(ReactLink)`
+    text-decoration: none;
+    color:  #FB8A04;
 `

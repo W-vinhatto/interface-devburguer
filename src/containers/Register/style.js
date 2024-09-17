@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Link as ReactLink } from "react-router-dom";
+
 
 import bgcolor from "../../assets/BG Lights effect.svg"
 
@@ -13,7 +15,7 @@ export const ContainerBg = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10%;
+    padding: 10% 0;
 
     img {
         filter: drop-shadow(0  20px  1.5rem darkorange);
@@ -22,7 +24,7 @@ export const ContainerBg = styled.div`
     h1 {
         color: #ffffff;
         position: absolute;
-        top: 30%; 
+        top: 45%; 
         font-weight: bolder;
         font-size: 55px;
         text-align: center;
@@ -47,17 +49,17 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 0 10%;
-
-    p {
-        color: #FB8A04;
-        font-family: "Road Rage", sans-serif;
-        text-align: center;
-        font-size: 30px;
-        letter-spacing:1px ;
-    }
 `
 
-export const Fomr = styled.div`
+export const PDescrition = styled.p`
+    color: #FB8A04;
+    font-family: "Road Rage", sans-serif;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing:1px ;
+`
+
+export const Fomr = styled.form`
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -89,12 +91,20 @@ export const InputContainer = styled.div`
     }
 `
 
-export const Link = styled.h2`
+export const LinkText = styled.h2`
     color: #ffffff;
     font-size: 16px;
+`
 
-    a {
-        color:  #FB8A04;
-    }
+export const ErrosForm = styled.p`
+    font-size: 14px;
+    color: #cf3057;
+    line-height: 80%;
+    height: 10px;
+`
+
+export const Link = styled(ReactLink)`
+    text-decoration: none;
+    color:  #FB8A04;
 `
 
