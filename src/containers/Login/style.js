@@ -27,8 +27,6 @@ export const ContainerBg = styled.div`
         font-size: 55px;
         text-align: center;
         letter-spacing: 2.5px;
-        color: #ffffff;
-
         font-family: "Road Rage", sans-serif;
 
 

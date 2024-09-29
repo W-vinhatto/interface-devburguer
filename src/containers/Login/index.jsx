@@ -4,6 +4,7 @@ import * as yup from 'yup'
 import { api } from '../../services/api';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../hooks/UserContext';
 
 import bacground from "../../assets/lanche-bacground.svg"
 import { Button } from "../../components/Button"
@@ -25,6 +26,8 @@ import {
 
 export function Login() {
     const navigate = useNavigate()
+
+    const { putUserdata } = useUser()
 
     const schema = yup.object({
         email: yup
@@ -48,7 +51,7 @@ export function Login() {
     })
 
     const onSubmit = async (data) => {
-        const response = await toast.promise(
+        const { data: userData } = await toast.promise(
             api.post('/sessions', {
                 email: data.email,
                 password: data.password
@@ -66,7 +69,9 @@ export function Login() {
                 error: 'Email ou senha Incorretos'
             }
         )
+        putUserdata(userData)
     }
+
 
 
     return (
