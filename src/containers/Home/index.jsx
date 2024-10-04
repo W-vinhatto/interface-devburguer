@@ -1,10 +1,18 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
-
-import { CategoryName, Container, ContainerCard, ContainerCarousel, ContainerCategory } from "./style";
-import { ProductCarousel } from '../../components/ProductCarousel';
 import { useNavigate } from 'react-router-dom';
-import { CardCategory } from '../../components/CardCategory';
+
+import { ProductCarousel, CardCategory } from '../../components';
+
+
+import {
+    CategoryName,
+    Container,
+    ContainerCard,
+    ContainerCarousel,
+    ContainerCategory
+} from "./style";
+
 
 
 

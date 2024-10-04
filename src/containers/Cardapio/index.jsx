@@ -3,6 +3,10 @@ import { api } from '../../services/api';
 import { formatPrice } from '../../utils/formatPrice'
 import Carousel from "react-multi-carousel";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ShoppingCart } from '@phosphor-icons/react'
+import { useCart } from '../../hooks/CartContext'
+
+
 
 
 
@@ -21,7 +25,7 @@ import {
 
 
 export function Cardapio() {
-
+    const { putProductsCart } = useCart()
 
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
@@ -131,14 +135,16 @@ export function Cardapio() {
 
                 <ProductsContainer>
                     {filteredproducts.map((product) => (
-                        <CardContainer>
+                        <CardContainer key={product.id}>
                             <img src={product.url} />
                             <p>{product.name}</p>
                             <p>{product.category.name}</p>
                             <DivButton>
                                 <strong>{formatPrice(product.price)}</strong>
                                 <div>
-                                    <Button>+</Button>
+                                    <Button onClick={() => putProductsCart(product)}>
+                                        <ShoppingCart size={22} />
+                                    </Button>
                                 </div>
                             </DivButton>
                         </CardContainer>

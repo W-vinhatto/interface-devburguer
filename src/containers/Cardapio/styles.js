@@ -95,6 +95,9 @@ export const CardContainer = styled.div`
 
     justify-content: space-between;
 
+    box-shadow: 
+        rgba(251,138,4, 0.3) 2px 6px 6px,
+        rgba(251,138,4, 0.3) 2px 6px 15px;
 
     img {
         height: 100px;

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { Card, CategoryButton, Container, Divbutton, DivImg } from "./styled"
 import { api } from '../../services/api';
 import { useNavigate } from "react-router-dom";
+import { ArrowFatLinesRight } from '@phosphor-icons/react'
+
 
 
 
@@ -35,13 +37,13 @@ export function CardCategory() {
                     <Divbutton>
                         <CategoryButton
                             onClick={() => {
-                                navigate( {
+                                navigate({
                                     pathname: '/cardapio',
                                     search: `?categoria=${categoryname.id}`
                                 },
                                 )
                             }}>
-                            >
+                            <ArrowFatLinesRight tamanho={32} />
                         </CategoryButton>
                     </Divbutton>
                 </Card>
