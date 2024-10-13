@@ -132,3 +132,62 @@ export const DivButton = styled.div`
         border-radius: 50%;
     }
 `
+
+export const Alert = styled.div`
+    position: fixed;
+    background-color: #242329;
+    border-radius: 20px;
+
+
+    bottom: 10px;
+    width: 90%;
+
+    color: #fff;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+
+    @media screen and (max-width: 600px) {
+        font-size: 20px;
+    }
+`
+
+export const Checked = styled.div`
+    position: fixed;
+    z-index: 10;
+
+    width: 92%;
+    height: 100vh;
+    top: 0;
+  
+
+    background-color: rgba(36, 35, 41, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        max-width: 200px;
+    }
+
+    div {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+       
+        
+        background-color: rgba(36, 35, 41, 0.9);
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: 500;
+        color: #fff;
+        padding: 30px 10px ;
+
+        box-shadow: 
+        rgba(251,138,4, 0.3) 2px 6px 6px,
+        rgba(251,138,4, 0.3) 2px 6px 15px;
+        border: solid 1px #FB8A04;
+    }
+`

@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
 import { api } from '../../services/api';
-import { formatPrice } from '../../utils/formatPrice'
+import { formatPrice } from '../../utils/formatPrice';
 import Carousel from "react-multi-carousel";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ShoppingCart } from '@phosphor-icons/react'
-import { useCart } from '../../hooks/CartContext'
-
-
-
-
-
-
-import { Button } from '../../components/Button'
+import { ShoppingCart } from '@phosphor-icons/react';
+import { useCart } from '../../hooks/CartContext';
+import { Button } from '../../components/Button';
 import {
     CardContainer,
     Container,
@@ -19,62 +13,80 @@ import {
     DivButton,
     LinkCatgory,
     ContainerCardapio,
-    ProductsContainer
+    ProductsContainer,
+    Alert,
+    Checked
 } from "./styles";
 
-
-
 export function Cardapio() {
-    const { putProductsCart } = useCart()
+    const { putProductsCart } = useCart();
 
-    const [categories, setCategories] = useState([])
-    const [products, setProducts] = useState([])
-    const [filteredproducts, setFilteredproducts] = useState([])
+    const [categories, setCategories] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [filteredproducts, setFilteredproducts] = useState([]);
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
 
-    const navigate = useNavigate()
-    const { search } = useLocation()
+    const [showCheked, setShowCheked] = useState(false);
+    const [cheked, setCheked] = useState({});
 
-    // validação de params enviados na navegação da home
-    const queryParams = new URLSearchParams(search)
+
+    const navigate = useNavigate();
+    const { search } = useLocation();
+
+    const queryParams = new URLSearchParams(search);
 
     const [activeCategory, setActiveCategory] = useState(() => {
-        const categoryid = +queryParams.get('categoria')
-
-        if (categoryid) {
-            return categoryid
-        }
-        return 0
-    })
-
+        const categoryid = +queryParams.get('categoria');
+        return categoryid || 0;
+    });
 
     useEffect(() => {
         async function loadCategories() {
-            const { data } = await api.get('categories')
-            const allCategory = [{ id: 0, name: 'todas' }, ...data]
-            setCategories(allCategory)
+            const { data } = await api.get('categories');
+            const allCategory = [{ id: 0, name: 'todas' }, ...data];
+            setCategories(allCategory);
         }
 
         async function loadProduct() {
-            const { data } = await api.get('products')
-            setProducts(data)
+            const { data } = await api.get('products');
+            setProducts(data);
         }
-        loadCategories()
-        loadProduct()
-    }, [])
+        loadCategories();
+        loadProduct();
+    }, []);
 
     useEffect(() => {
         if (activeCategory === 0) {
-            setFilteredproducts(products)
+            setFilteredproducts(products);
         } else {
             const newFilteredproducts = products.filter(
                 (prod) => prod.category_id === activeCategory
-            )
-            setFilteredproducts(newFilteredproducts)
+            );
+            setFilteredproducts(newFilteredproducts);
         }
-    }, [products, activeCategory])
+    }, [products, activeCategory]);
 
 
 
+    // alert de notificação para cada item adicionado ao carrinho
+    const handleAddToCart = (product) => {
+        putProductsCart(product);
+        setAlertMessage(`${product.name} 
+            foi adicionado ao carrinho!`);
+        setShowAlert(true);
+        setTimeout(() => {
+            setShowAlert(false);
+        }, 3000);
+    };
+
+
+
+
+    const check = (product) => {
+        setCheked(product)
+        setShowCheked(true);
+    };
 
     const responsive = {
         superLargeDesktop: {
@@ -95,14 +107,29 @@ export function Cardapio() {
         },
     };
 
-
-
-
     return (
         <Container>
             <ContainerCardapio>
-
                 <h2>Cardápio</h2>
+
+                {showAlert && (
+                    <Alert>{alertMessage}</Alert>
+                )}
+
+
+                {showCheked && (
+                    <Checked>
+                        <div>
+                            <img src={cheked.url} alt={cheked.name} />
+                            <p>{cheked.name}</p>
+                            <p>{formatPrice(cheked.price)}</p>
+                            <p>{cheked.category_id}</p>
+                            <Button onClick={() => setShowCheked(false)}>
+                                voltar
+                            </Button>
+                        </div>
+                    </Checked>
+                )}
 
                 <Carousel
                     responsive={responsive}
@@ -123,8 +150,8 @@ export function Cardapio() {
                                         {
                                             replace: true
                                         }
-                                    )
-                                    setActiveCategory(categoryname.id)
+                                    );
+                                    setActiveCategory(categoryname.id);
                                 }}>
                                 {categoryname.name}
                             </LinkCatgory>
@@ -132,17 +159,19 @@ export function Cardapio() {
                     ))}
                 </Carousel>
 
-
                 <ProductsContainer>
                     {filteredproducts.map((product) => (
                         <CardContainer key={product.id}>
                             <img src={product.url} />
                             <p>{product.name}</p>
-                            <p>{product.category.name}</p>
+                            <Button onClick={() => check(product)} >
+                                detalhes
+                            </Button>
+
                             <DivButton>
                                 <strong>{formatPrice(product.price)}</strong>
                                 <div>
-                                    <Button onClick={() => putProductsCart(product)}>
+                                    <Button onClick={() => handleAddToCart(product)}>
                                         <ShoppingCart size={22} />
                                     </Button>
                                 </div>
@@ -152,5 +181,5 @@ export function Cardapio() {
                 </ProductsContainer>
             </ContainerCardapio>
         </Container>
-    )
+    );
 }

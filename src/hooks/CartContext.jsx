@@ -10,9 +10,10 @@ const CartContext = createContext({})
 
 export const Cartprovider = ({ children }) => {
 
-    const [cartProducts, setCartProducts] = useState([0])
+    const [cartProducts, setCartProducts] = useState([])
     // feito esse use state para subistituir de products ai funciona
       const [ abacate, setabacte] = useState([])
+
 
     const putProductsCart = (product) => {
 
@@ -40,7 +41,7 @@ export const Cartprovider = ({ children }) => {
 
     const clearCart = () => {
         setCartProducts([])
-        upDateLocalStorage({})
+        upDateLocalStorage([])
     }
 
 
