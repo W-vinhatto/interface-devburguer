@@ -50,6 +50,7 @@ export function Cardapio() {
 
         async function loadProduct() {
             const { data } = await api.get('products');
+         
             setProducts(data);
         }
         loadCategories();
@@ -86,6 +87,7 @@ export function Cardapio() {
     const check = (product) => {
         setCheked(product)
         setShowCheked(true);
+        
     };
 
     const responsive = {
@@ -123,7 +125,7 @@ export function Cardapio() {
                             <img src={cheked.url} alt={cheked.name} />
                             <p>{cheked.name}</p>
                             <p>{formatPrice(cheked.price)}</p>
-                            <p>{cheked.category_id}</p>
+                            <p>{cheked.descripition}</p>
                             <Button onClick={() => setShowCheked(false)}>
                                 voltar
                             </Button>
@@ -164,9 +166,11 @@ export function Cardapio() {
                         <CardContainer key={product.id}>
                             <img src={product.url} />
                             <p>{product.name}</p>
-                            <Button onClick={() => check(product)} >
+                            <button
+                                id="button-detalhes"
+                                onClick={() => check(product)} >
                                 detalhes
-                            </Button>
+                            </button>
 
                             <DivButton>
                                 <strong>{formatPrice(product.price)}</strong>

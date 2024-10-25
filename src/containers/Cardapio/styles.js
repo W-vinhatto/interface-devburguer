@@ -114,6 +114,21 @@ export const CardContainer = styled.div`
         overflow: hidden;
         text-overflow: ellipsis; 
     }
+
+    #button-detalhes {
+        background-color: transparent;
+        border: solid 1px #FB8A04;
+        width: 90%;
+        height: 40px;
+        border-radius: 20px;
+
+        color: #fff;
+        font-size: 15px;
+
+        &:hover{
+        background-color: #ba6704;
+    }
+    }
 `
 
 export const DivButton = styled.div`
@@ -156,7 +171,7 @@ export const Checked = styled.div`
     position: fixed;
     z-index: 10;
 
-    width: 92%;
+    width: 96%;
     height: 100vh;
     top: 0;
   
@@ -175,19 +190,29 @@ export const Checked = styled.div`
         width: 50%;
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 20px;
-       
-        
         background-color: rgba(36, 35, 41, 0.9);
         border-radius: 20px;
-        font-size: 20px;
-        font-weight: 500;
-        color: #fff;
-        padding: 30px 10px ;
-
+        padding: 30px 15px ;
         box-shadow: 
         rgba(251,138,4, 0.3) 2px 6px 6px,
         rgba(251,138,4, 0.3) 2px 6px 15px;
         border: solid 1px #FB8A04;
+
+
+        font-size: 20px;
+        font-weight: 500;
+        color: #fff;
+        text-align: center;
+
+
+        button {
+            max-width: 300px;
+        }
+
+        @media screen and (max-width: 600px) {
+            width: 80%;
+    }
     }
 `
