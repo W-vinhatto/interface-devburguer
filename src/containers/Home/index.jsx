@@ -68,7 +68,7 @@ export const Home = () => {
                         onClick={() => {
                             navigate(
                                 {
-                                    pathname: '/',
+                                    pathname: '/home',
                                     search: `?categoria=${category.id}`
                                 },
                                 {

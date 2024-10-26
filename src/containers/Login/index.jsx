@@ -61,7 +61,7 @@ export function Login() {
                 success: {
                     render() {
                         setTimeout(() => {
-                            navigate('/')
+                            navigate('/home')
                         }, 2000)
                         return 'seja Bem-vindo(a)'
                     }

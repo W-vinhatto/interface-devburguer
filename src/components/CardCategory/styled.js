@@ -1,12 +1,11 @@
-import strict from "assert/strict";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
 export const Container = styled.div`
     padding: 30px 10px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+
 
     gap: 10px;
     align-items: center;
@@ -21,13 +20,14 @@ export const Container = styled.div`
 
 
 export const Card = styled.div`
-    width: 100%;
+    width: 250px;
     height: 80px;
 
     background-color: #585858;
     border-radius: 20px;
 
     display: flex;
+    align-items: center;
     justify-content: space-between;
 
 
@@ -39,22 +39,14 @@ export const Card = styled.div`
     p {
         color: #fff;
         font-size: 20px;
-        margin-top: 5%;
+        margin-left: 5%;
     }
 `
 
-export const DivImg = styled.div`
-    width: 30%;
-
-    img {
-        width: 100%;
-        height: 100%;
-        border-radius: 20px 0 0 20px;
-    }
-`
 
 export const Divbutton = styled.div`
-    width: 20%;
+    width: 30%;
+    height: 100%;
     background-color: rgb(178,34,34, 0.5);
     border-radius:0 20px 20px  0;
     
