@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup'
 import { api } from '../../services/api';
 import { toast } from 'react-toastify';
+import { ErrorMessage, Button } from '../../components';
 
 import bacground from "../../assets/lanche-bacground.svg"
-import { Button } from "../../components/Button"
 
 import {
     ContainerBg,
@@ -14,8 +14,7 @@ import {
     Fomr,
     InputContainer,
     Link,
-    LinkText,
-    ErrosForm
+    LinkText
 } from './style'
 import { useNavigate } from 'react-router-dom';
 
@@ -41,7 +40,7 @@ export function Register() {
     })
         .required();
 
-        
+
     const onSubmit = async (data) => {
 
         try {
@@ -94,25 +93,25 @@ export function Register() {
                     <InputContainer>
                         <label> Nome </label>
                         <input placeholder="Nome" type="text" {...register('name')} />
-                        <ErrosForm>{errors?.name?.message}</ErrosForm>
+                        <ErrorMessage>{errors?.name?.message}</ErrorMessage>
                     </InputContainer>
 
                     <InputContainer>
                         <label> Email </label>
                         <input placeholder="E-mail" type="email" {...register('email')} />
-                        <ErrosForm>{errors?.email?.message}</ErrosForm>
+                        <ErrorMessage>{errors?.email?.message}</ErrorMessage>
                     </InputContainer>
 
                     <InputContainer>
                         <label> Senha </label>
                         <input placeholder="Senha" type="password" {...register('password')} />
-                        <ErrosForm>{errors?.password?.message}</ErrosForm>
+                        <ErrorMessage>{errors?.password?.message}</ErrorMessage>
                     </InputContainer>
 
                     <InputContainer>
                         <label> Confirmar senha </label>
                         <input placeholder="Confirmar senha" type="password" {...register('confirmPasswword')} />
-                        <ErrosForm>{errors?.confirmPasswword?.message}</ErrosForm>
+                        <ErrorMessage>{errors?.confirmPasswword?.message}</ErrorMessage>
                     </InputContainer>
 
                     <Button type='submit' >Criar conta</Button>

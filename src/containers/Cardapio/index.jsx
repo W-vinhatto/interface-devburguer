@@ -6,6 +6,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ShoppingCart } from '@phosphor-icons/react';
 import { useCart } from '../../hooks/CartContext';
 import { Button } from '../../components/Button';
+import lancheSvg from '../../assets/lancheSvg.svg'
+
+
+
 import {
     CardContainer,
     Container,
@@ -15,7 +19,8 @@ import {
     ContainerCardapio,
     ProductsContainer,
     Alert,
-    Checked
+    Checked,
+    Contentimg
 } from "./styles";
 
 export function Cardapio() {
@@ -50,7 +55,7 @@ export function Cardapio() {
 
         async function loadProduct() {
             const { data } = await api.get('products');
-         
+
             setProducts(data);
         }
         loadCategories();
@@ -73,7 +78,7 @@ export function Cardapio() {
     // alert de notificação para cada item adicionado ao carrinho
     const handleAddToCart = (product) => {
         putProductsCart(product);
-        setAlertMessage(`${product.name} 
+        setAlertMessage(` 
             foi adicionado ao carrinho!`);
         setShowAlert(true);
         setTimeout(() => {
@@ -87,7 +92,7 @@ export function Cardapio() {
     const check = (product) => {
         setCheked(product)
         setShowCheked(true);
-        
+
     };
 
     const responsive = {
@@ -112,6 +117,12 @@ export function Cardapio() {
     return (
         <Container>
             <ContainerCardapio>
+                <Contentimg>
+                    <div>
+                        <img src={lancheSvg} />
+                    </div>
+                </Contentimg>
+
                 <h2>Cardápio</h2>
 
                 {showAlert && (

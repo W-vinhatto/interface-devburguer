@@ -1,8 +1,9 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'http://localhost:3001'
-})
+    baseURL: 'https://innovative-illumination-production-0226.up.railway.app'  // Adicionando o prefixo 'https://'
+});
+
 
 // usando metodo interceptor para pegar as informaçoes do local storage
 api.interceptors.request.use((config) => {

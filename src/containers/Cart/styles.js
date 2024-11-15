@@ -4,7 +4,6 @@ import bg from "../../assets/bgcart.svg"
 import bgAcoplado from "../../assets/bg-acoplado.svg"
 
 export const Container = styled.div`
-    width: 100vw;
     min-height: calc(100vh - 122px);
 
     background: url("${bgAcoplado}");
@@ -14,7 +13,6 @@ export const Container = styled.div`
 export const Banner = styled.div`
     background-color: #1f1f1f;
     background: url('${bg}');
-    width: 100vw;
     height: 180px;
 
     background-size: cover;

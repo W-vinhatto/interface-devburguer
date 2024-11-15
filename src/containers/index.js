@@ -6,5 +6,7 @@ export * from './Home'
 export * from './Cardapio'
 export * from './Cart'
 
+export * from './Admin'
+
 export * from './Checkout'
 export * from './CompletePayment'

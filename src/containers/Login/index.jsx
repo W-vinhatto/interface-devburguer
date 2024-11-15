@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../hooks/UserContext';
 
 import bacground from "../../assets/lanche-bacground.svg"
-import { Button } from "../../components/Button"
+import { ErrorMessage, Button } from '../../components'
 
 import {
     ContainerBg,
@@ -17,7 +17,6 @@ import {
     InputContainer,
     LinkText,
     Link,
-    ErrosForm
 } from './style'
 
 
@@ -61,7 +60,11 @@ export function Login() {
                 success: {
                     render() {
                         setTimeout(() => {
-                            navigate('/home')
+                            if (userData.admin) {
+                                navigate('/pedidos')
+                            } else {
+                                navigate('/home')
+                            }
                         }, 2000)
                         return 'seja Bem-vindo(a)'
                     }
@@ -88,13 +91,13 @@ export function Login() {
                     <InputContainer>
                         <label> Email </label>
                         <input {...register('email')} />
-                        <ErrosForm>{errors?.email?.message}</ErrosForm>
+                        <ErrorMessage>{errors?.email?.message}</ErrorMessage>
                     </InputContainer>
 
                     <InputContainer>
                         <label> Senha </label>
                         <input type='password' {...register('password')} />
-                        <ErrosForm>{errors?.password?.message}</ErrosForm>
+                        <ErrorMessage>{errors?.password?.message}</ErrorMessage>
                     </InputContainer>
 
                     <LinkText>Esqueci minha senha.</LinkText>

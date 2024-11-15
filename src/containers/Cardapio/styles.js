@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import bgImageTop from "../../assets/bg-acoplado.svg"
 
 import bgcolor from "../../assets/BG Lights effect.svg"
 import { Link } from "react-router-dom";
@@ -6,8 +7,6 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.div`
     
-
-    width: 100vw;
     min-height: 100vh;
     background: url('${bgcolor}');
 
@@ -16,6 +15,26 @@ export const Container = styled.div`
 
     padding: 10px;
 `
+
+
+export const Contentimg = styled.div`
+    background: url('${bgImageTop}');
+    height: 200px;
+    
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: end;
+
+    div {
+        height: 100%;
+
+        img {
+            height: 100%;
+        }
+    }
+`
+
 
 export const  ContainerCardapio = styled.div`
     border: solid 1px #FB8A04;

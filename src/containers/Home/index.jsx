@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
+import lancheSvg from '../../assets/lancheSvg.svg'
 
 import { ProductCarousel, CardCategory } from '../../components';
 
@@ -10,7 +11,9 @@ import {
     Container,
     ContainerCard,
     ContainerCarousel,
-    ContainerCategory
+    ContainerCategory,
+    Contentimg,
+    ContentTitle
 } from "./style";
 
 
@@ -57,8 +60,15 @@ export const Home = () => {
 
     return (
         <Container>
-            <h2>Além de apenas Burguers</h2>
-            <h3>É uma revolução do sabor!</h3>
+            <ContentTitle>
+                <h2>Além de apenas Burguers</h2>
+                <h3>É uma revolução do sabor!</h3>
+            </ContentTitle>
+            <Contentimg>
+                <div>
+                    <img src={lancheSvg} />
+                </div>
+            </Contentimg>
 
             <ContainerCard>
                 {categories.map((category) => (

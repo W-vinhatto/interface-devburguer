@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import bgcolor from "../../assets/BG Lights effect.svg"
+import bgImageTop from "../../assets/bgcart.svg"
 import { Link } from "react-router-dom";
 
 
 export const Container = styled.div`
-    width: 100vw;
+   
     min-height: 100vh;
     background: url('${bgcolor}');
 
@@ -12,7 +13,7 @@ export const Container = styled.div`
     background-color: #242329;
 
     
-    padding: 10% 5%;
+    padding: 10% 4%;
     text-align: left;
 
     h2 {
@@ -27,6 +28,31 @@ export const Container = styled.div`
     h3 {
         color: #ffffff;
         font-size: 25px;
+    }
+`
+
+export const ContentTitle = styled.div`
+    position: absolute;
+    padding: 5px 20px;
+`
+
+export const Contentimg = styled.div`
+    background: url('${bgImageTop}');
+    height: 200px;
+    
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: end;
+
+    div {
+        height: 100%;
+
+        img {
+            margin-right: 20px;
+            margin-top: 40px;
+            height: 100%;
+        }
     }
 `
 
@@ -57,5 +83,9 @@ export const CategoryName = styled(Link)`
 
 export const ContainerCarousel = styled.div``
 
-export const ContainerCategory = styled.div``
+export const ContainerCategory = styled.div`
+    border-radius: 20px;
+    background: url('${bgImageTop}');
+    padding: 10px;
+`
 

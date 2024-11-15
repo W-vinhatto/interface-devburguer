@@ -3,24 +3,39 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-    padding: 30px 10px;
-    display: grid;
-
-
-    gap: 10px;
-    align-items: center;
-
-    width: 100%;
-    max-width: 500px;
-
+    
     h2 {
-        width: 100%;
+        margin: 20px 0;
     }
 `
 
+export const Content = styled.div`
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    padding: 30px 0;
+
+    width: 100%;
+
+    gap: 10px;
+
+    @media screen and (max-width: 700px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    @media screen and (max-width: 540px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+`
 
 export const Card = styled.div`
-    width: 250px;
+    min-width: 230px;
+    max-width: 250px;
     height: 80px;
 
     background-color: #585858;

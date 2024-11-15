@@ -92,13 +92,6 @@ export const LinkText = styled.h2`
     font-size: 16px;
 `
 
-export const ErrosForm = styled.p`
-    font-size: 14px;
-    color: #cf3057;
-    line-height: 80%;
-    height: 10px;
-`
-
 export const Link = styled(ReactLink)`
     text-decoration: none;
     color:  #FB8A04;

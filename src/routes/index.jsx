@@ -1,10 +1,11 @@
 
 import { createBrowserRouter } from "react-router-dom";
 
-import { Login, Register, Home, Cardapio, Cart, Checkout, CompletePayment, Welcome } from "../containers";
+import { Login, Register, Home, Cardapio, Cart, Checkout, CompletePayment, Welcome, Admin } from "../containers";
+import { Header, Footer } from '../components'
+import paths from '../constants/paths'
 
-
-import PrivateRoute from './privateRoutes'; 
+import PrivateRoute from './privateRoutes';
 
 export const router = createBrowserRouter([
     {
@@ -24,7 +25,9 @@ export const router = createBrowserRouter([
         element: (
             <>
                 <PrivateRoute>
+                    <Header />
                     <Home />
+                    <Footer />
                 </PrivateRoute>
             </>
         )
@@ -34,7 +37,9 @@ export const router = createBrowserRouter([
         element: (
             <>
                 <PrivateRoute>
+                    <Header />
                     <Cardapio />
+                    <Footer />
                 </PrivateRoute>
             </>
         )
@@ -44,11 +49,62 @@ export const router = createBrowserRouter([
         element: (
             <>
                 <PrivateRoute>
+                    <Header />
                     <Cart />
+                    <Footer />
                 </PrivateRoute>
             </>
         )
     },
+
+    {
+        path: paths.Order,
+        element: (
+            <>
+                <PrivateRoute isAdmin>
+                    <Admin />
+                </PrivateRoute>
+            </>
+        )
+    },
+
+
+    ,
+
+    {
+        path: paths.Products,
+        element: (
+            <>
+                <PrivateRoute isAdmin>
+                    <Admin/>
+                </PrivateRoute>
+            </>
+        )
+    },
+
+    {
+        path: paths.NewProduct,
+        element: (
+            <>
+                <PrivateRoute isAdmin>
+                    <Admin/>
+                </PrivateRoute>
+            </>
+        )
+    },
+
+    {
+        path: paths.EditProducts,
+        element: (
+            <>
+                <PrivateRoute isAdmin>
+                    <Admin/>
+                </PrivateRoute>
+            </>
+        )
+    },
+
+
     {
         path: '/checkout',
         element: <Checkout />
