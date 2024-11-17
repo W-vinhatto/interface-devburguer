@@ -13,9 +13,10 @@ export const ContainerBg = styled.div`
     background-color: #242329;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     padding: 10% 0;
+
+    
 
     img {
         filter: drop-shadow(0  20px  1.5rem darkorange);
@@ -24,7 +25,7 @@ export const ContainerBg = styled.div`
     h1 {
         color: #ffffff;
         position: absolute;
-        top: 45%; 
+        top: 5%; 
         font-weight: bolder;
         font-size: 55px;
         text-align: center;
@@ -44,11 +45,27 @@ export const ContainerBg = styled.div`
 
 `
 
+export const ContainerImage = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @media screen and (max-width: 850px) {
+       display: none;
+    }
+`
+
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 10%;
+    justify-content: center;
+    width: 50%;
+
+    @media screen and (max-width: 850px) {
+        width: 70%;
+    }
 `
 
 export const PDescrition = styled.p`
@@ -57,13 +74,13 @@ export const PDescrition = styled.p`
     text-align: center;
     font-size: 30px;
     letter-spacing:1px ;
+    max-width: 440px;
 `
 
 export const Fomr = styled.form`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px;
     width: 100%;
     max-width: 400px;
 `

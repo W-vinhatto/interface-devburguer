@@ -12,18 +12,22 @@ export const ContainerBg = styled.div`
     background-color: #242329;
 
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 10% 0;
 
     img {
         filter: drop-shadow(0  20px  1.5rem darkorange);
+
+        @media screen and (max-width: 750px) {
+       display: none;
+    }
     }
 
     h1 {
         color: #ffffff;
         position: absolute;
-        top: 45%; 
+        top: 5%; 
         font-size: 55px;
         text-align: center;
         letter-spacing: 2.5px;

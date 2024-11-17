@@ -14,7 +14,8 @@ import {
     Fomr,
     InputContainer,
     Link,
-    LinkText
+    LinkText,
+    ContainerImage
 } from './style'
 import { useNavigate } from 'react-router-dom';
 
@@ -81,13 +82,17 @@ export function Register() {
 
     return (
         <ContainerBg>
-            <img src={bacground} alt="image-lanche" />
             <h1>Ólympo's <spam>BURGUER</spam></h1>
-            <Container>
+
+            <ContainerImage>
                 <PDescrition> !! PREPARADO !! <br />
                     saboreia criações dignas das mais grandiosas lendas. Que os deuses da
                     gastronomia estejam com você!
                 </PDescrition>
+                <img src={bacground} alt="image-lanche" />
+            </ContainerImage>
+
+            <Container>
 
                 <Fomr onSubmit={handleSubmit(onSubmit)} >
                     <InputContainer>
