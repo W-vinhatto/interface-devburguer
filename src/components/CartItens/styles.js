@@ -4,6 +4,11 @@ export const ProductImage = styled.img`
     height: 80px;
     width: 80px;
     border-radius: 16px;
+
+    @media screen and (max-width: 630px) {
+        height: 60px;
+        width: 60px;
+    }
 `
 
 export const ButtonGroup = styled.div`

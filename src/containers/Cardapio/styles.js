@@ -148,7 +148,17 @@ export const CardContainer = styled.div`
         background-color: #ba6704;
     }
     }
+
+    @media screen and (max-width: 390px) {
+        width: 165px;
+    }
+
+    @media screen and (max-width: 345px) {
+        width: 150px;
+    }
 `
+
+
 
 export const DivButton = styled.div`
     display: flex;

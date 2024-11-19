@@ -52,4 +52,13 @@ export const Content = styled.div`
     padding: 40px;
     margin: 0 auto;
     gap: 20px;
+
+    @media screen and (max-width: 870px) {
+       display: flex;
+       flex-direction: column;
+    }
+
+    @media screen and (max-width: 630px) {
+       padding: 10px;
+    }
 `

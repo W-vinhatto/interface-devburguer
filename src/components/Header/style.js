@@ -7,6 +7,10 @@ export const Container = styled.div`
    
     height: 72px;
     padding: 0 7%;
+
+    @media screen and (max-width: 7530px) {
+       height: auto;
+    }
 `
 
 export const Content = styled.div`
@@ -14,6 +18,10 @@ export const Content = styled.div`
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
+
+    @media screen and (max-width: 7530px) {
+       display: block;
+    }
 `
 
 export const Navigation = styled.nav`
