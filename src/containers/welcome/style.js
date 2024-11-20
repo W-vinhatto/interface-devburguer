@@ -20,28 +20,29 @@ export const Container = styled.div`
     rgba(0, 0, 0, 0.8) 50px 30px 50px 50px inset, 
     rgba(0, 0, 0, 0.8) 30px 50px 50px 50px inset;
 
-    @media screen and (max-width: 650px) {
+
+        @media screen and (max-width: 650px) {
         
         background: url('${bgLanchePortable}');
         box-shadow: none;
-
-        div {
-            background: rgb(187,114,49);
-
-         background: linear-gradient(270deg,
-            rgba(187,114,49,0.34217436974789917) 0%,
-            rgba(0,0,0,0.5942752100840336) 35%,
-            rgba(0,0,0,0.8435749299719888) 63%);
-
-            width: 100%;
-        }
-       
     }
 `
+
+export const DivLinear = styled.div`
+    background: rgb(187,114,49);
+
+ background: linear-gradient(270deg,
+    rgba(187,114,49,0.34217436974789917) 0%,
+    rgba(0,0,0,0.5942752100840336) 35%,
+    rgba(0,0,0,0.8435749299719888) 63%);
+
+    width: 100%;
+`
+
+
 export const ContainerInfo = styled.div`
     width: 50%;
-
-    padding: 10% 50px;
+    padding: 50px 0 0 10%;
 
     span {
         color:  #FB8A04;
@@ -69,10 +70,13 @@ export const ContainerInfo = styled.div`
 `
 
 export const ContainerButton = styled.div`
+    
     display: flex;
     padding: 20px 70px;
     gap: 30px;
     width: 50%;
+    position: absolute;
+    z-index: 5;
 
     @media screen and (max-width: 650px) {
        width: 100%;
