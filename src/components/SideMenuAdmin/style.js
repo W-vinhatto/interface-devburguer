@@ -11,7 +11,12 @@ export const Container  = styled.div`
 
     hr {
         margin: 50px 15px;
+
+        @media screen and (max-width: 650px){
+        margin: 5px 15px;
     }
+    }
+
 `
 
 
@@ -29,7 +34,18 @@ export const ItemContainer = styled.div`
     .icon {
         color: #fff;
     }
+
+    .linkExit{
+        position: fixed;
+        bottom: 30px;
+
+        @media screen and (max-width: 650px){
+            position: static;
+    }
+}
 `
+
+
 
 export const ListLinks = styled(Link)`
     font-style: normal;

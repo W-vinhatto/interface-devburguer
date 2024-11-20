@@ -24,6 +24,12 @@ export const Menu = styled.div`
     gap: 50px;
     justify-content: center;
     margin: 20px 0;
+
+    @media screen and (max-width: 630px) {
+        gap: 15px;
+        font-size: 12px;
+        text-align: center;
+    }
 `
 
 export const LinkMenu = styled.a`
