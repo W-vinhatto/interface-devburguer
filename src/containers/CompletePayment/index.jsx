@@ -29,7 +29,7 @@ const STATUS_CONTENT_MAP = {
         iconColor: "#30B130",
         icon: SuccessIcon,
         buttonText: 'Voltar para loja',
-        url: '/'
+        url: '/home'
     },
     processing: {
         text: "Pagamento em Processamento.",

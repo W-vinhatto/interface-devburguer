@@ -9,12 +9,17 @@ export const Container  = styled.div`
     top: 0;
     left: 0;
 
+
+    @media screen and (max-width: 650px){
+        width: 100%;
+    }
+
+
     hr {
         margin: 50px 15px;
 
         @media screen and (max-width: 650px){
         margin: 5px 15px;
-        width: 100%;
     }
     }
 
