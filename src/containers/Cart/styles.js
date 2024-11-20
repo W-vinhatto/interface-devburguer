@@ -59,6 +59,6 @@ export const Content = styled.div`
     }
 
     @media screen and (max-width: 630px) {
-       padding: 10px;
+       padding: 0px;
     }
 `

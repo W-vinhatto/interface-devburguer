@@ -25,6 +25,10 @@ export const Th = styled.th`
     &:first-child{
         border-top-left-radius: 20px;
     }
+
+    @media screen and (max-width: 630px) {
+       padding: 3px;
+    }
 `
 
 export const Td = styled.td`
@@ -32,6 +36,11 @@ export const Td = styled.td`
     color: #484848;
     font-weight: 500;
     line-height: 115%;
+
+    @media screen and (max-width: 630px) {
+       padding: 3px;
+       font-size: 12px;
+    }
 `
 
 export const Body = styled.tbody``

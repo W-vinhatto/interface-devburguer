@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const ProductImage = styled.img`
     height: 80px;
     width: 80px;
@@ -14,6 +15,7 @@ export const ProductImage = styled.img`
 export const ButtonGroup = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
 
     button {
@@ -31,6 +33,15 @@ export const ButtonGroup = styled.div`
     &:hover{
         background-color: #ba6704;
     }
+
+    @media screen and (max-width: 630px) {
+        width: 20px;
+    }
+    }
+
+
+    @media screen and (max-width: 630px) {
+        gap: 8px;
     }
 `
 
