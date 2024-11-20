@@ -29,6 +29,8 @@ export const Menu = styled.div`
         gap: 15px;
         font-size: 12px;
         text-align: center;
+        display: flex;
+        flex-direction: column;
     }
 `
 

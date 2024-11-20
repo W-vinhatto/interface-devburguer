@@ -36,7 +36,7 @@ const STATUS_CONTENT_MAP = {
         iconColor: "#6D6E78",
         icon: InfoIcon,
         buttonText: 'Voltar para loja',
-        url: '/'
+        url: '/home'
     },
     requires_payment_method: {
         text: "Falha no pagamento tente novamente.",
