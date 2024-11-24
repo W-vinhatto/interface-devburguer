@@ -64,9 +64,9 @@ function Newproducts() {
             success: 'Produto criado com sucesso',
             error: 'Falha tente novamete'
         })
-        setTimeout( ()=> {
+        setTimeout(() => {
             navigate(paths.Products)
-        },2000)
+        }, 2000)
     }
 
     useEffect(() => {
@@ -110,7 +110,7 @@ function Newproducts() {
                             </>
                         )
                         }
-
+                        {/**
                         <input
                             type='file'
                             accept='image/png, image/jpeg'
@@ -119,6 +119,24 @@ function Newproducts() {
                                 setFileName(value.target.files[0]?.name)
                             }}
                         />
+
+                        */}
+                        <input
+                            type="file"
+                            accept="image/png, image/jpeg"
+                            {...register('file')}
+                            onChange={(event) => {
+                                const file = event.target.files?.[0];
+                                if (file) {
+                                    if (file.size > 2 * 1024 * 1024) {
+                                        toast.error("O arquivo deve ter no máximo 2 MB!");
+                                        event.target.value = "";
+                                        return;
+                                    }
+                                    setFileName(file.name);
+                                }
+                            }}
+                        />;
                     </LabelUploading>
                     <ErrorMessage>{errors.file?.message}</ErrorMessage>
                 </div>
